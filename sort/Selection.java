@@ -16,16 +16,11 @@ public class Selection extends Sort{
 			exchange(a, i, min);
 		}
 	}
-	
+	//不能加override注解，那这个算什么，overwrite吗
 	public static void sort_visualize(Comparable[] a) {
 		int N = a.length;
 		for(int i=0; i<N; i++) {
-			//先用背景色消除掉上一轮留下的墨迹
-			StdDraw.setPenColor(StdDraw.WHITE);
-			StdDraw.setPenRadius(0.05);
-			for(int j=0; j<N; j++) {
-				StdDraw.point(j/10.0 + 0.05, (Double) a[j]);
-			}
+			SortVisualize.paintBefore(a);
 			
 			int min = i;
 			for(int j=i+1; j<N; j++) {
@@ -36,22 +31,11 @@ public class Selection extends Sort{
 			System.out.println("exchange " + i + " with " + min);
 			exchange(a, i, min);
 			
-			//再用前景色画出新的墨迹
-			StdDraw.setPenColor(StdDraw.BLACK);
-			StdDraw.setPenRadius(0.02);
-			for(int j=0; j<N; j++) {
-				StdDraw.point(j/10.0 + 0.05, (Double) a[j]);
-			}
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			SortVisualize.paintAfter(a);
 		}
 	}
 	public static void main(String[] args) {
-		int N = 10;
+		int N = 30;
 		Double[] a = new Double[N];
 		for(int i=0; i<N; i++) {
 			a[i] = StdRandom.uniform();//[0, 1) uniformly
