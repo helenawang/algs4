@@ -15,32 +15,6 @@ If you need only the class files (and not the source code), you can use
 
 <br>
 
-## Design goals
-
-Our original goal was to cover the <em>50 algorithms that every programmer should know</em>.
-We use the word <em>programmer</em> to refer to anyone engaged in trying to accomplish
-something with the help of a computer, including scientists, engineers, and applications
-developers, not to mention college students in science, engineering, and computer science.
-The code is optimized for clarity, portability, and efficiency. While some of our 
-implementations are as fast as (or faster than) their counterparts in <tt>java.util</tt>,
-our main goal is to express the core algorithmic ideas in an elegant and simple manner.
-While we embrace some advanced Java features (such as generics and iterators),
-we avoid those that interfere with the exposition (such as inheritance and concurrency).
-
-## Build managers
-
-This repository is intended for use with either the <a href = "https://maven.apache.org">Maven</a>
-or <a href = "https://gradle.org">Gradle</a> build managers.
-It can be run from either the command line or integrated into
-Eclipse, NetBeans, and IntelliJ.
-You can also access it via <a href = "https://bintray.com/algs4/maven/algs4">Bintray</a>.
-
-## Coursera Algorithms, Part I and II students
-
-Feel free to use this public repository to develop solutions to the programming assignments.
-However, please do not store solutions to programming assignments in public repositories.
-
-
 ## Copyright
 
 Copyright &copy; 2000&ndash;2017 by Robert Sedgewick and Kevin Wayne.
