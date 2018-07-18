@@ -10,26 +10,28 @@ import edu.princeton.cs.algs4.StdOut;
  * @function 判断是否是合法的栈混洗序列
  * @time 2018/7/18 16:50
  */
-public class StackOrderValidation {//TODO:push to github and write a blog
+public class StackOrderValidation {//TODO:write a blog
     private Stack<Integer> stack;
     private Queue<Integer> queue;
     public StackOrderValidation() {
-        stack = new Stack<>();
-        queue = new Queue<>();
+
     }
     public boolean validate(String string) {
+        stack = new Stack<>();
+        queue = new Queue<>();
         String[] str = string.split(" ");
         for (String s: str) {
             queue.enqueue(Integer.parseInt(s));
         }
         int cur = -1; //当前入过栈的最大元素
         while (!queue.isEmpty()) {
+//            StdOut.println(queue);
             while (cur < queue.peek()) {//尝试让栈顶和队列头的元素匹配
                 cur++;
                 stack.push(cur);
             }
 
-            if (queue.peek() == stack.peek()) { //匹配上，抵消掉
+            if (queue.peek().equals(stack.peek())) { //匹配上，抵消掉
                 queue.dequeue();
                 stack.pop();
             } else return false;//下一个元素不在栈顶，被压着，序列不可能
@@ -50,6 +52,7 @@ public class StackOrderValidation {//TODO:push to github and write a blog
                 "2 1 4 3 6 5 8 7 9 0"
         };
         for (int i=0; i<strings.length; i++) {
+            StdOut.println(strings[i] + "====================");
             StdOut.println(i + ": " + sov.validate(strings[i]));
         }
     }
